@@ -8,8 +8,10 @@ var path = require('path');
 
 module.exports = () => {
   // call dotenv and it will return an Object with a parsed key
-  const env = dotenv.config().parsed;
-  console.log(env);
+  let env = dotenv.config().parsed;
+  // if (env === undefined || !env || env === null){
+  env = { API_KEY: '38d524fac1a9301e4968b555c6d94d79' };
+  // }
 
   // reduce env variables to an oject
   const envKeys = Object.keys(env).reduce((prev, next) => {
